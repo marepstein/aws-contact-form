@@ -3,29 +3,72 @@
   <head>
     <title>My Contact Form Microservice</title>
     <style>
-      /* It's not pretty, but it'll do :) */
+      /* It's not pretty, but for now */
+
+      html,
+      body {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: pink;
+      }
+
       input,
       textarea {
         display: block;
         margin: 20px;
+        width: 60%;
+        padding: 10px;
+        border: none;
+        color: rgb(252, 125, 111);
+      }
+
+      form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      title {
+        display: block;
+        color: rgb(252, 125, 111);
+        font-weight: 900;
+        font-size: 100px;
+      }
+
+      .form-submit {
+        width: 20%;
+        color: salmon;
+        background-color: white;
+        border: none;
+      }
+
+      .form-message {
+        font-family: Arial, Helvetica, sans-serif;
       }
     </style>
   </head>
 
   <body>
+    <title>Contact Me</title>
     <form id="serverless-contact-form">
       <input
         type="text"
         name="email"
-        placeholder="Email Address"
+        placeholder="Your Email"
         class="form-email"
       />
+
       <input
         type="text"
         name="subject"
         placeholder="Subject"
         class="form-subject"
       />
+
       <textarea
         rows="5"
         cols="40"
@@ -62,7 +105,8 @@
           message: formMessage,
         };
 
-        // Here, we instantiate our Request. This is a special object used by the Fetch API so it knows where to send data, what data to send, and how to send it.
+        // Here, we instantiate our Request.
+        // This is a special object used by the Fetch API so it knows where to send data, what data to send, and how to send it.
         var lambdaRequest = new Request(endpoint, {
           method: "POST",
           // Quick note: 'no-cors' mode is for development on localhost only!
