@@ -1,2 +1,2 @@
-# aws-contact-form
-Vanilla js
+## My first AWS serverless contact form 
+
